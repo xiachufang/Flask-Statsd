@@ -15,21 +15,21 @@ def device_download(device):
 
 * 访问 `/app/download`，会自动向 Statsd 发送 
 
-        ```
-        myapp.app.download.count,status_code=200,server=vagrant-ubuntu-trusty-64:1|c
-        myapp.app.download.time,status_code=200,server=vagrant-ubuntu-trusty-64:0.467062|ms
-        myapp.request.count,status_code=200,server=vagrant-ubuntu-trusty-64:1|c
-        myapp.request.time,status_code=200,server=vagrant-ubuntu-trusty-64:0.467062|ms
-        ```
+    ```
+    myapp.app.download.count,status_code=200,server=vagrant-ubuntu-trusty-64:1|c
+    myapp.app.download.time,status_code=200,server=vagrant-ubuntu-trusty-64:0.467062|ms
+    myapp.request.count,status_code=200,server=vagrant-ubuntu-trusty-64:1|c
+    myapp.request.time,status_code=200,server=vagrant-ubuntu-trusty-64:0.467062|ms
+    ```
 
 * 访问 `/app/android/stats`，会自动发送
 
-        ```
-        myapp.app.stats.count,status_code=200,server=vagrant-ubuntu-trusty-64:1|c
-        myapp.app.stats.time,status_code=200,server=vagrant-ubuntu-trusty-64:0.467062|ms
-        myapp.request.count,status_code=200,server=vagrant-ubuntu-trusty-64:1|c
-        myapp.request.time,status_code=200,server=vagrant-ubuntu-trusty-64:0.467062|ms
-        ```
+    ```
+    myapp.app.stats.count,status_code=200,server=vagrant-ubuntu-trusty-64:1|c
+    myapp.app.stats.time,status_code=200,server=vagrant-ubuntu-trusty-64:0.467062|ms
+    myapp.request.count,status_code=200,server=vagrant-ubuntu-trusty-64:1|c
+    myapp.request.time,status_code=200,server=vagrant-ubuntu-trusty-64:0.467062|ms
+    ```
 
 
 # 使用
