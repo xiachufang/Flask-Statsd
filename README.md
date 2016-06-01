@@ -3,6 +3,12 @@
 把 / 替换成 . ，并且在前面增加 app_name 。同时会自动增加 `status_code` `server`
 tag。
 
+# Install
+```bash
+pip install flask-statsd-tags
+```
+
+# Send data
 ```python
 @route('/app/download')
 def download():
