@@ -1,7 +1,7 @@
 import re
 import time
 import socket
-from flask import current_app, request
+from flask import request
 from flask import _app_ctx_stack as stack
 from statsd import StatsClient
 
@@ -15,7 +15,7 @@ def _extract_request_path(url_rule):
 def add_tags(path, **tags):
     if not tags:
         return path
-    tag_str =','.join([('%s=%s' % (k, v)) for k, v in tags.items()])
+    tag_str = ','.join([('%s=%s' % (k, v)) for k, v in tags.items()])
     return '%s,%s' % (path, tag_str)
 
 
@@ -49,7 +49,6 @@ class FlaskStatsd(object):
         ctx = stack.top
         period = (time.time() - ctx.request_begin_at) * 1000
         status_code = resp.status_code
-        print request.url_rule
         path = _extract_request_path(request.url_rule)
         with self.connection.pipeline() as pipe:
             pipe.incr(add_tags(path + ".count", server=self.hostname, status_code=status_code))
