@@ -51,9 +51,11 @@ class FlaskStatsd(object):
         status_code = resp.status_code
         path = _extract_request_path(request.url_rule)
         with self.connection.pipeline() as pipe:
-            pipe.incr(add_tags(path + ".count", server=self.hostname, status_code=status_code))
-            pipe.timing(add_tags(path + ".time", server=self.hostname, status_code=status_code), period)
-            pipe.incr(add_tags("request.count", server=self.hostname, status_code=status_code))
-            pipe.timing(add_tags("request.time", server=self.hostname, status_code=status_code), period)
+            path = add_tags(path, server=self.hostname, status_code=status_code)
+            pipe.incr(path)
+            pipe.timing(path, period)
+            overall_path = add_tags("request", server=self.hostname, status_code=status_code)
+            pipe.incr(overall_path)
+            pipe.timing(overall_path, period)
 
         return resp
