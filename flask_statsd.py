@@ -51,7 +51,7 @@ class FlaskStatsd(object):
         ctx = stack.top
         period = (time.time() - ctx.request_begin_at) * 1000
         status_code = resp.status_code
-        path = _extract_request_path(request.url_rule)
+        path = _extract_request_path(request.url_rule or 'notfound')
         with self.connection.pipeline() as pipe:
             path = add_tags(path, server=self.hostname, status_code=status_code)
             pipe.incr(path)
