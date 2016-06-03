@@ -7,6 +7,8 @@ from statsd import StatsClient
 
 
 def _extract_request_path(url_rule):
+    if not url_rule:
+        return ''
     s = re.sub(r'/<.*>', '/', str(url_rule))
     s = re.sub(r'\.json$', '', s)
     return '.'.join(filter(None, s.split('/')))
