@@ -23,7 +23,7 @@ def add_tags(path, **tags):
 
 class FlaskStatsd(object):
 
-    def __init__(self, host='localhost', port=8125, prefix='', app=None):
+    def __init__(self, app=None, host='localhost', port=8125, prefix=''):
         self.app = app
         self.hostname = socket.gethostname()
         self.statsd_host = host
