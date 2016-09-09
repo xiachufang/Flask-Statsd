@@ -39,9 +39,13 @@ class FlaskStatsd(object):
         self.connection = self.connect()
 
     def connect(self):
+        prefix = self.app.name.strip('.')
+        if self.statsd_prefix:
+            prefix = '%s.%s' % (prefix, self.statsd_prefix.strip('.'))
+
         return StatsClient(host=self.statsd_host,
                            port=self.statsd_port,
-                           prefix=self.app.name + self.statsd_prefix,
+                           prefix=prefix,
                            maxudpsize=1024)
 
     def before_request(self):
