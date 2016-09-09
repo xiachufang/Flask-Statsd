@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='flask-statsd-tags',
-    version='0.1.5',
+    version='0.1.6',
     url='https://github.com/gfreezy/flask-statsd/',
     license='BSD',
     author='gfreezy',
