@@ -41,7 +41,7 @@ def device_download(device):
 # 使用
 ```python
 from flask import Flask
-from flask.ext.statsd import FlaskStatsd
+from flask_statsd import FlaskStatsd
 
 app = Flask(__name__)
 FlaskStatsd(app=app, host='localhost', port=8125, prefix='')
