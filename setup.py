@@ -3,12 +3,12 @@ from setuptools import setup
 
 setup(
     name='flask-statsd-tags',
-    version='0.1.6',
+    version='2.0.0',
     url='https://github.com/gfreezy/flask-statsd/',
     license='BSD',
     author='gfreezy',
     author_email='gfreezy@gmail.com',
-    description='Flask extention for sending statsd data',
+    description='Flask metrics in Influx Statsd format.',
     long_description=__doc__,
     py_modules=['flask_statsd'],
     zip_safe=False,
